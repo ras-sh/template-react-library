@@ -1,6 +1,6 @@
 # @ras-sh/template-react-library
 
-📦 React library template with TypeScript, testing setup, and modern build tooling.
+⚛️ React library template with TypeScript, testing setup, and modern build tooling.
 
 ## Features
 
