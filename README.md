@@ -5,8 +5,9 @@
 ## Features
 
 - **TypeScript** - Full type safety with modern TS features and React support
-- **[tsup](https://tsup.egoist.dev/)** - Fast, zero-config bundler powered by esbuild
+- **[tsup](https://tsup.egoist.dev/)** - Fast, zero-config bundler powered by esbuild with tree-shaking and code splitting
 - **[Vitest](https://vitest.dev/)** - Fast unit testing with React Testing Library
+- **[Storybook](https://storybook.js.org/)** - Component development environment with visual testing
 - **[Changesets](https://github.com/changesets/changesets)** - Automated version management and changelog generation
 - **GitHub Actions** - Automated CI/CD workflows for testing and publishing
 - **Pre-publish safety** - Automatic checks before publishing to prevent broken releases
@@ -21,8 +22,21 @@ pnpm test
 ## Building Your Library
 
 1. Add React components in `src/`
-2. Add tests in `tests/`
-3. Update `package.json` metadata (name, description, keywords, repository)
+2. Create Storybook stories alongside your components (e.g., `component.stories.tsx`)
+3. Add tests in `tests/`
+4. Update `package.json` metadata (name, description, keywords, repository)
+
+## Optimized Bundle
+
+Automatic tree-shaking and code splitting ensure consumers only bundle what they use. Import components either from the main entry point or directly from individual paths:
+
+```tsx
+// Main entry point
+import { Button } from '@ras-sh/template-react-library';
+
+// Direct import
+import { Button } from '@ras-sh/template-react-library/button';
+```
 
 ## Scripts
 
@@ -31,6 +45,8 @@ pnpm test
 | `pnpm build` | Build library with tsup |
 | `pnpm test` | Run tests with vitest |
 | `pnpm test:coverage` | Run tests with coverage report |
+| `pnpm storybook` | Start Storybook dev server |
+| `pnpm build-storybook` | Build Storybook for deployment |
 | `pnpm check-types` | Run TypeScript type checking |
 | `pnpm check` | Run linter checks |
 | `pnpm fix` | Auto-fix linting issues |
@@ -42,10 +58,16 @@ pnpm test
 
 ```
 src/
-├── index.tsx                   # Main entry point with example components
+├── button.tsx                  # Example Button component
+├── button.stories.tsx          # Storybook stories for Button
+├── index.ts                    # Main entry point
 tests/
 ├── setup.ts                    # Test setup with jest-dom
-├── index.test.tsx              # Test files
+├── button.test.tsx             # Component tests
+.storybook/
+├── main.ts                     # Storybook configuration
+├── preview.ts                  # Storybook preview config
+├── vitest.setup.ts             # Storybook Vitest integration
 .github/
 ├── workflows/
 │   ├── ci.yml                  # CI workflow (lint, test, build)
