@@ -42,7 +42,7 @@ import { Button } from '@ras-sh/template-react-library/button';
 
 | Command | Description |
 |---------|-------------|
-| `pnpm build` | Build library with tsup |
+| `pnpm build` | Build library with tsdown |
 | `pnpm test` | Run tests with vitest |
 | `pnpm test:coverage` | Run tests with coverage report |
 | `pnpm storybook` | Start Storybook dev server |
@@ -51,8 +51,8 @@ import { Button } from '@ras-sh/template-react-library/button';
 | `pnpm check` | Run linter checks |
 | `pnpm fix` | Auto-fix linting issues |
 | `pnpm changeset` | Create a new changeset |
-| `pnpm version` | Update versions based on changesets |
-| `pnpm release` | Build and publish to npm |
+| `pnpm changeset:version` | Update versions based on changesets |
+| `pnpm changeset:publish` | Build and publish the package to npm |
 
 ## Project Structure
 
