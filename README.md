@@ -5,7 +5,7 @@
 ## Features
 
 - **TypeScript** - Full type safety with modern TS features and React support
-- **[tsup](https://tsup.egoist.dev/)** - Fast, zero-config bundler powered by esbuild with tree-shaking and code splitting
+- **[tsdown](https://tsdown.dev/)** - Fast, zero-config bundler powered by Rolldown with tree-shaking and code splitting
 - **[Vitest](https://vitest.dev/)** - Fast unit testing with React Testing Library
 - **[Storybook](https://storybook.js.org/)** - Component development environment with visual testing
 - **[Changesets](https://github.com/changesets/changesets)** - Automated version management and changelog generation

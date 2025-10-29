@@ -5,6 +5,7 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { storybookTest } from "@storybook/addon-vitest/vitest-plugin";
 import react from "@vitejs/plugin-react-swc";
+import { playwright } from "@vitest/browser-playwright";
 import { defineConfig } from "vite";
 
 const dirname =
@@ -39,7 +40,11 @@ export default defineConfig({
           browser: {
             enabled: true,
             headless: true,
-            provider: "playwright",
+            provider: playwright({
+              launchOptions: {
+                slowMo: 100,
+              },
+            }),
             instances: [
               {
                 browser: "chromium",
